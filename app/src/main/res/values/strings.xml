@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Albertsons Android Coding Challenge</string>
+    <string name="app_name">AlbertsonsAndroidCodingChallenge</string>
     <string name="enter_acronym">Enter an acronym:</string>
     <string name="submit">Submit</string>
     <string name="enter_an_acronym">Enter an acronym</string>

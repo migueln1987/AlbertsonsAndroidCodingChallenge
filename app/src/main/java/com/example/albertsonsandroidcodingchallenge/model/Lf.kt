@@ -1,6 +1,6 @@
 package com.example.albertsonsandroidcodingchallenge.model
 
-data class Lf(
+data class LF(
     val freq: Int,
     val lf: String,
     val since: Int,
