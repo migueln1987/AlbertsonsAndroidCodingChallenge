@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.example.albertsonsandroidcodingchallenge.model.DictionaryMeaning
 import com.example.albertsonsandroidcodingchallenge.utils.IFailureCallback
+import com.example.albertsonsandroidcodingchallenge.viewmodels.dictionary.data_source.remote.ListDataRemoteRepository
 
 class ListDataRepository private constructor(mContext: Context) : ListDataSource {
 

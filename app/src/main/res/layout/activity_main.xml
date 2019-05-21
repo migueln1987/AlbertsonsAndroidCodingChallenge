@@ -3,7 +3,7 @@
     <data>
         <variable
                 name="viewModel"
-                type="com.example.albertsonsandroidcodingchallenge.viewmodels.dictionary.MainViewModel" />
+                type="com.example.albertsonsandroidcodingchallenge.viewmodels.dictionary.MainViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,7 +26,7 @@
             <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/editTextAcronym"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <androidx.constraintlayout.widget.Guideline
@@ -42,23 +42,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-                android:onClick="@{()->viewModel.findAbbrebiation(editTextAcronym.getText().toString())}"
+                android:onClick="@{()->viewModel.findAbbreviation(editTextAcronym.getText().toString())}"
                 android:text="@string/submit"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@id/textInputLayout"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="0dp"
-
                 android:layout_height="wrap_content"
-                app:customAdapter="@{viewModel.listAdapter}"
+                app:customAdapter="@{viewModel.getListAdapter()}"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

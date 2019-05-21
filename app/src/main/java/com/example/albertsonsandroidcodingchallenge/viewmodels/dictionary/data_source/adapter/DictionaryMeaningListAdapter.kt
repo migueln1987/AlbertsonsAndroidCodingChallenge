@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.albertsonsandroidcodingchallenge.R
+import com.example.albertsonsandroidcodingchallenge.databinding.DictionaryMeaningListItemViewBinding
 import com.example.albertsonsandroidcodingchallenge.model.LF
 import com.example.albertsonsandroidcodingchallenge.viewmodels.dictionary.DictionaryItemObservable
 
