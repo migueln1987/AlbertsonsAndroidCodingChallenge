@@ -24,13 +24,15 @@ object NetworkUtils {
     val HTTP_RETROFIT_FAILURE = 0
 
     fun isConnectedToInternet(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetworkInfo = connectivityManager.activeNetworkInfo
-        if (activeNetworkInfo != null && activeNetworkInfo.isConnected)
-            return true
+        return if (activeNetworkInfo != null && activeNetworkInfo.isConnected)
+            true
         else {
-            Toast.makeText(context, "Please check you internet connection", Toast.LENGTH_LONG).show()
-            return false
+            Toast.makeText(context, "Please check you internet connection", Toast.LENGTH_LONG)
+                .show()
+            false
         }
     }
 
@@ -44,7 +46,11 @@ object NetworkUtils {
             .create()
         return Retrofit.Builder()
             .baseUrl(NetworkURLS.SERVER_URL)
-            .client(okHttpClient.newBuilder().connectTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS).readTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS).writeTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS).build())
+            .client(
+                okHttpClient.newBuilder().connectTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)
+                    .readTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)
+                    .writeTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS).build()
+            )
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
@@ -58,7 +64,7 @@ object NetworkUtils {
 
             reader = BufferedReader(InputStreamReader(response.byteStream()))
 
-            var line: String=reader.readLine()
+            var line: String = reader.readLine()
 
             try {
                 while (line != null) {
@@ -83,7 +89,7 @@ object NetworkUtils {
 
             reader = BufferedReader(InputStreamReader(response.body()!!.byteStream()))
 
-            var line: String=reader.readLine()
+            var line: String = reader.readLine()
 
             try {
                 while (line != null) {
@@ -93,7 +99,6 @@ object NetworkUtils {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
-
         } catch (e: Exception) {
             e.printStackTrace()
         }

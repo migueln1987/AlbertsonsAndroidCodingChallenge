@@ -11,7 +11,7 @@ import retrofit2.Response
 
 class NetworkController constructor(val mContext: Context) {
 
-    fun getListData(sf:String,callback: NetworkResponseCallback) {
+    fun getListData(sf: String, callback: NetworkResponseCallback) {
         val service = NetworkUtils.buildRetrofit().create(ServiceRequest::class.java)
         val authenticationResponseCall = service.getMeanings(sf)
         authenticationResponseCall.enqueue(RetrofitServiceTask(callback))
@@ -22,7 +22,11 @@ class NetworkController constructor(val mContext: Context) {
 
         override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
             if (response.code() == NetworkUtils.HTTP_SUCCESS) {
-                networkResponseCallback.onSuccessResponse(NetworkUtils.getStringResponseFromRaw(response), response.code())
+                networkResponseCallback.onSuccessResponse(
+                    NetworkUtils.getStringResponseFromRaw(
+                        response
+                    ), response.code()
+                )
             } else {
                 val errorMsg = NetworkUtils.getStringResponseFromRaw(response.errorBody()!!)
 

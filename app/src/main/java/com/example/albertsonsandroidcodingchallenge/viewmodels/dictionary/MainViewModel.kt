@@ -27,7 +27,7 @@ class MainViewModel(application: Application) : CustomAndroidViewModel(applicati
             if (item.isEmpty())
                 listAdapter.updateData(ArrayList())
             else
-                listAdapter.updateData(item[0].LVES)
+                listAdapter.updateData(item[0].lfs)
             dataLoading.set(false)
         })
 
@@ -47,5 +47,5 @@ class MainViewModel(application: Application) : CustomAndroidViewModel(applicati
         }
     }
 
-    fun getListAdapter() : DictionaryMeaningListAdapter = listAdapter
+    fun getListAdapter(): DictionaryMeaningListAdapter = listAdapter
 }

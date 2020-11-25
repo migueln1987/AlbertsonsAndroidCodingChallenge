@@ -16,19 +16,22 @@ import com.google.gson.reflect.TypeToken
 class ListDataRemoteRepository private constructor(val context: Context) : ListDataSource {
     private var networkController: NetworkController = NetworkController(context)
 
-    override fun getListDataFromServer(sf: String, liveDataList: MutableLiveData<MutableList<DictionaryMeaning>>, failureCallback: IFailureCallback) {
-        if(NetworkUtils.isConnectedToInternet(context)) {
-            networkController.getListData(sf,object : NetworkResponseCallback {
+    override fun getListDataFromServer(
+        sf: String,
+        liveDataList: MutableLiveData<MutableList<DictionaryMeaning>>,
+        failureCallback: IFailureCallback
+    ) {
+        if (NetworkUtils.isConnectedToInternet(context)) {
+            networkController.getListData(sf, object : NetworkResponseCallback {
                 override fun onSuccessResponse(jsonData: String, responseCode: Int) {
                     try {
                         val gson = Gson()
                         val listType = object : TypeToken<List<DictionaryMeaning>>() {}.type
                         val output: ArrayList<DictionaryMeaning> = gson.fromJson(jsonData, listType)
                         liveDataList.value = output
-                        if(output.isEmpty())
+                        if (output.isEmpty())
                             failureCallback.onError("No Data matching the criteria found")
-                    }catch (ex: JsonParseException)
-                    {
+                    } catch (ex: JsonParseException) {
                         failureCallback.onError("No Data matching the criteria found")
                     }
                 }
@@ -37,8 +40,7 @@ class ListDataRemoteRepository private constructor(val context: Context) : ListD
                     failureCallback.onError(errorData)
                 }
             })
-        }else
-        {
+        } else {
             failureCallback.onError("Please check internet connection")
         }
 

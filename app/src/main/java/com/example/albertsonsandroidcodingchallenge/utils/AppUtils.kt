@@ -13,9 +13,14 @@ object AppUtils {
     fun bind(recyclerView: RecyclerView, adapter: RecyclerView.Adapter<*>?) {
         recyclerView.adapter = adapter
         recyclerView.setHasFixedSize(false)
-        recyclerView.layoutManager= LinearLayoutManager(recyclerView.context)
+        recyclerView.layoutManager = LinearLayoutManager(recyclerView.context)
         recyclerView.itemAnimator = DefaultItemAnimator()
-        recyclerView.addItemDecoration(DividerItemDecoration(recyclerView.context,DividerItemDecoration.HORIZONTAL))
+        recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                recyclerView.context,
+                DividerItemDecoration.HORIZONTAL
+            )
+        )
 
     }
 }

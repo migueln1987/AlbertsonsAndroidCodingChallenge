@@ -4,10 +4,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class RemoteDictionaryData{
+class RemoteDictionaryData {
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
-    var keyword:String=""
-    var data:String=""
+    var keyword: String = ""
+    var data: String = ""
 
 }

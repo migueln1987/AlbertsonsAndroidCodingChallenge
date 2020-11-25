@@ -14,7 +14,11 @@ class ListDataRepository private constructor(mContext: Context) : ListDataSource
         remoteDataSource = ListDataRemoteRepository.getInstance(mContext)
     }
 
-    override fun getListDataFromServer(sf: String?, liveDataList: MutableLiveData<MutableList<DictionaryMeaning>>, failureCallback: IFailureCallback?) {
+    override fun getListDataFromServer(
+        sf: String?,
+        liveDataList: MutableLiveData<MutableList<DictionaryMeaning>>,
+        failureCallback: IFailureCallback?
+    ) {
         remoteDataSource!!.getListDataFromServer(sf, liveDataList, failureCallback)
     }
 

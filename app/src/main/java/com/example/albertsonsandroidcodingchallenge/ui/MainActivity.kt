@@ -13,11 +13,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainViewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val activityMainBinding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val activityMainBinding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         activityMainBinding.viewModel = mainViewModel
         activityMainBinding.lifecycleOwner = this
-        var editTextAcronym=activityMainBinding.editTextAcronym
+        val editTextAcronym = activityMainBinding.editTextAcronym
         editTextAcronym.text.toString()
     }
 

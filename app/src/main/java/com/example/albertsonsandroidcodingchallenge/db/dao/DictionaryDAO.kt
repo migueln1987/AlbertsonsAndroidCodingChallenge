@@ -10,7 +10,7 @@ import com.example.albertsonsandroidcodingchallenge.model.RemoteDictionaryData
 interface DictionaryDAO {
 
     @Insert
-    fun insertCard (info: RemoteDictionaryData)
+    fun insertCard(info: RemoteDictionaryData)
 
     @Query("SELECT * FROM RemoteDictionaryData")
     fun getAllCards(): LiveData<List<RemoteDictionaryData>>

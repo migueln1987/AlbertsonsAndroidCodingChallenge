@@ -11,14 +11,16 @@ import com.example.albertsonsandroidcodingchallenge.databinding.DictionaryMeanin
 import com.example.albertsonsandroidcodingchallenge.model.LF
 import com.example.albertsonsandroidcodingchallenge.viewmodels.dictionary.DictionaryItemObservable
 
-class DictionaryMeaningListAdapter : RecyclerView.Adapter<DictionaryMeaningListAdapter.ViewHolder>() {
+class DictionaryMeaningListAdapter :
+    RecyclerView.Adapter<DictionaryMeaningListAdapter.ViewHolder>() {
     private val data: ArrayList<LF> = ArrayList()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.dictionary_meaning_list_item_view,
-            FrameLayout(parent.context), false)
+            FrameLayout(parent.context), false
+        )
         return ViewHolder(itemView)
     }
 
